@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST" class="form-signin center-content">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+    
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                Invalid username or password.
+            </div>
+        {% endif %}
+            
+        {% for field in form %}
+                <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                </div>
+        {% endfor %}
+    
+        <button class="w-20 btn btn-lg btn-primary" type="submit">Sign in</button>
+</form>
+
+{% endblock %}

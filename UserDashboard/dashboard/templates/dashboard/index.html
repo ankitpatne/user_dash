@@ -1,0 +1,15 @@
+{% extends 'dashboard/base.html' %}
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    <div class="container text-center">
+        <h1 class="mt-5">Welcome, <span id="username">{{ user.username }} !</span> <br> What are you up to today?</h1>
+    </div>
+    {% else %}
+    <div class="container text-center">
+        <h1 class="mt-5">Welcome to User Dashboard</h1>
+        <p class="lead">Please <a href="{% url 'login' %}" style="text-decoration: none;"><b>login</b></a> or <a href="{% url 'register' %}" style="text-decoration: none;"><b>signup</b></a> to continue</p>
+    </div>
+    {% endif %}
+    {% endblock %}
+
